@@ -22,9 +22,9 @@
   .comic {
     background-color: white;
     border-radius: 10px;
+    height: 250px;
     margin: 20px;
     padding: 10px;
-    display: flex;
   }
 
   .comic-thumbnail-container {
@@ -35,7 +35,6 @@
   .comic-data-container {
     float: left;
     margin: 10px;
-    /* width: 50%; */
   }
 
   .comic-thumbnail {

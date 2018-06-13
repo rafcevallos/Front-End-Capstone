@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import BookList from './bookfeed/BookList'
+import Comics from './comics'
+import NavBar from './nav/NavBar'
 
-class App extends Component {
+
+export default class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: []
+    };
+    this.handleSelection = this.handleSelection.bind(this);
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <NavBar />
+        {/* <p>{this.state.selected.length}</p> */}
+        <div className="store-container">
+          <h1>All Comics</h1>
+          <BookList result={Comics().data.results} onSelect={this.handleSelection} />
+        </div>
+        <div className="owned-container">
+          <h1>My Comics</h1>
+          <BookList result={Comics().data.results} />
+        </div>
       </div>
     );
   }
-}
 
-export default App;
+  handleSelection(index) {
+    this.setState({
+      selected: this.state.selected.concat(index)
+    });
+  }
+
+}
