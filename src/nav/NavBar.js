@@ -17,7 +17,8 @@ export default class NavBar extends Component {
      * passed from App
      */
     search = (e) => {
-        if (e.charCode === 20) {
+        if (e.charCode === 13) {
+            // 13 actually means 'ENTER' button
             this.props.searchHandler(this.state.searchTerms)
             this.setState({ searchTerms: "" })
         }
@@ -32,7 +33,7 @@ export default class NavBar extends Component {
                 onClick={this.props.viewHandler} href="#">Logout</a>
         }
     }
-
+    // Tracks user's keypresses
     handleFieldChange = (evt) => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
@@ -40,10 +41,11 @@ export default class NavBar extends Component {
     }
 
     render() {
+        console.log(this.state.searchTerms)
         return (
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                 <a className="navbar-brand col-sm-3 col-md-2 mr-0" onClick={this.props.viewHandler} href="#">
-                    <img id="nav__home" src={pow} style={{ height: `100px` }} />
+                    <img id="nav__home" src={pow} style={{ height: `75px` }} />
                 </a>
                 <input id="searchTerms"
                     value={this.state.searchTerms}
@@ -51,15 +53,15 @@ export default class NavBar extends Component {
                     onKeyPress={this.search}
                     className="form-control w-100"
                     type="search"
-                    placeholder="Search"
+                    placeholder="Search for a book!"
                     aria-label="Search" />
                 <ul className="navbar-nav px-3">
                     <li className="nav-item text-nowrap">
                         <a className="nav-link" id="nav__profile"
                             onClick={this.props.viewHandler} href="#">
                             <img id="navimg__profile"
-                                 onClick={()=>$(".profileMenu").slideToggle(333)}
-                                 src={profilepic} style={{ height: `100px`, animation: `radial-pulse 1s infinite`}} />
+                                onClick={() => $(".profileMenu").slideToggle(333)}
+                                src={profilepic} style={{ height: `75px`, animation: `radial-pulse 1s infinite` }} />
                         </a>
                     </li>
                 </ul>

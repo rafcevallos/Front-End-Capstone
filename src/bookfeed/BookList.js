@@ -6,8 +6,11 @@ export default class BookList extends Component {
 
     render() {
         return (
-            <div>
-                {this.props.result.map((comic, index) => <Book comic={comic} key={index} onSelect={this.props.onSelect} />)}
+            <div className="bookList">
+                <h1 className="bookList_header">My Collection</h1>
+                {
+                    this.props.collection.bookId.map(c => <Book key={c.id} collection={c} />)
+                }
             </div>
         )
     }

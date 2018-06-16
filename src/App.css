@@ -1,7 +1,7 @@
 .store-container {
     float: left;
     margin: 10px;
-    width: 680px;
+    width: 50%;
     border-radius: 10px;
     background-color: whitesmoke;
     border: 1px solid #333;
@@ -10,7 +10,7 @@
   .owned-container {
     float: left;
     margin: 10px;
-    width: 680px;
+    width: 50%;
     border-radius: 10px;
     background-color: whitesmoke;
     border: 1px solid #333;
@@ -19,7 +19,7 @@
   h1 {
     margin: 20px;
   }
-  .comic {
+  /* .comic {
     background-color: white;
     border-radius: 10px;
     margin: 20px;
@@ -35,12 +35,12 @@
   .comic-data-container {
     float: left;
     margin: 10px;
-    /* width: 50%; */
-  }
+    width: 100%;
+  } */
 
-  .comic-thumbnail {
+  /* .comic-thumbnail {
     width: 150px;
-  }
+  } */
 
   .selected {
     background-color: limegreen;
