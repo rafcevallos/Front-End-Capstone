@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
-import BookList from './bookfeed/BookList'
-import Comics from './comics'
 import NavBar from './nav/NavBar'
 import Login from './auth/Login'
 import SearchResults from '../src/search/SearchResults'
 // import Home from '../src/bookfeed/Home'
+// import BookList from './bookfeed/BookList'
 
 
 export default class App extends Component {
 
-
-  // this.handleSelection = this.handleSelection.bind(this);
   // Set initial state
   state = {
     currentView: "login",
@@ -87,7 +84,7 @@ export default class App extends Component {
           return <SearchResults terms={this.state.searchTerms} />
         case "home":
         default:
-          // return <Home activeUser={this.state.activeUser} />
+        // return <Home activeUser={this.state.activeUser} />
       }
     }
   }
@@ -100,23 +97,8 @@ export default class App extends Component {
           activeUser={this.state.activeUser}
           setActiveUser={this.setActiveUser}
         />
-        {/* <NavBar searchHandler={this.performSearch} /> */}
         {this.View()}
-        {/* <p>{this.state.selected.length}</p> */}
-        {/* <div className="store-container">
-          <h1>All Comics</h1>
-          <BookList result={Comics().data.results} onSelect={this.handleSelection} />
-        </div> */}
-        {/* <div className="owned-container">
-          <h1>My Comics</h1>
-          <BookList result={Comics().data.results} />
-        </div> */}
       </article>
     )
   }
 }
-    // handleSelection(index) {
-      //   this.setState({
-        //     selected: this.state.selected.concat(index)
-        //   })
-        // }

@@ -2,79 +2,73 @@ import React, { Component } from "react"
 import "./SearchResults.css"
 import Avatar from "../images/avatar.png"
 import "../bookfeed/Book.css"
-// import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 
 
 export default class SearchResults extends Component {
     // Set initial state
     state = {
-        books: [],
+        books: [], /* This will hold all of the books from bagboard.json once they are fetched */
         // users: [],
         // collection: [],
         // wishlist: [],
     }
 
+    /* componentDidMount() does not allow multiple searches to work due to it only making the fetch once which makes the user have to reload the page.  Turning the fetch into a function allows it to be re-used in definitely when the page is rendered. */
 
-  Search = function() {
-      fetch(`http://localhost:8088/books?description_like=${encodeURI(this.props.terms)}`)
-        // use the above for when user types in search bar
-        .then(r => r.json())
-        .then(books => {
-            // newState.books = books
-            this.setState({
-                books: books
-        })
-        })}.bind(this)
+    Search = function () {
+        fetch(`http://localhost:8088/books?description_like=${encodeURI(this.props.terms)}`)
+            .then(r => r.json())
+            .then(books => {
+                this.setState({
+                    books: books
+                })
+            })
+    }.bind(this)
 
 
-    /*
-        By putting the API search code in `componentDidMount()` you will note
-        that when you perform a search, and are viewing the results, you can't
-        search again without going back to the main view.
-
-        How might you solve this issue?
-    */
     // componentDidMount() {
-        // const newState = {}
-        // fetch("http://localhost:8088/books")
-                // return fetch(`http://localhost:8088/users?q=${encodeURI(this.props.terms)}`)
-                // })
-                // .then(r => r.json())
-                // .then(users => {
-                //     // newState.users = users
-                //     this.setState({
-                //         users: users
-                //     })
-                // return fetch(`http://localhost:8088/collection?q=${encodeURI(this.props.terms)}`)
-            // })
-        // .then(r => r.json())
-        // .then(collection => {
-        //     // newState.collection = collection
-        //     this.setState({
-        //         collection: collection
-        //     })
-        //     return fetch(`http://localhost:8088/wishlist?q=${encodeURI(this.props.terms)}`)
-        // })
-        // .then(r => r.json())
-        // .then(wishlist => {
-        //     // newState.collection = wishlist
-        //     this.setState({
-        //         wishlist: wishlist
-        //     })
-        //     console.log(this.state)
-        // })
+    // const newState = {}
+    // fetch("http://localhost:8088/books")
+    // return fetch(`http://localhost:8088/users?q=${encodeURI(this.props.terms)}`)
+    // })
+    // .then(r => r.json())
+    // .then(users => {
+    //     // newState.users = users
+    //     this.setState({
+    //         users: users
+    //     })
+    // return fetch(`http://localhost:8088/collection?q=${encodeURI(this.props.terms)}`)
+    // })
+    // .then(r => r.json())
+    // .then(collection => {
+    //     // newState.collection = collection
+    //     this.setState({
+    //         collection: collection
+    //     })
+    //     return fetch(`http://localhost:8088/wishlist?q=${encodeURI(this.props.terms)}`)
+    // })
+    // .then(r => r.json())
+    // .then(wishlist => {
+    //     // newState.collection = wishlist
+    //     this.setState({
+    //         wishlist: wishlist
+    //     })
+    //     console.log(this.state)
+    // })
     // }
 
     render() {
         return (
             <div className="searchResults card-deck">
-            {this.Search()}
+                {/* Invoke Search Function */}
+                {this.Search()}
                 <h1 className="search-header">Search Results</h1>
                 <div className="search-container card">
                     <div className="row">
                         {
-                            this.state.books.map(book =>
+                            this.state.books.map(book => /* map over BOOKS ARRAY */
                                 <div className="card-book col-sm-3" key={book.id}>
                                     {/* <div className="comic-thumbnail-container  card-img-top"> */}
                                     {/* </div> */}
@@ -86,7 +80,6 @@ export default class SearchResults extends Component {
                                         <p>Price: $ {book.prices[0].price}</p>
                                         <p className="summary-text">Summary: {book.description}</p>
                                         {/* <p>Summary: {book.description.substring(0,250)}</p> */}
-                                        {/* work on clicking and adding to collection */}
                                         <div className="button-group">
                                             {/* <p> */}
                                             <button className="btn btn-primary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#content" aria-expanded="false" aria-controls="content">
@@ -106,6 +99,7 @@ export default class SearchResults extends Component {
                                             <button className="btn btn-success btn-sm btn-block">Add to Collection</button>
                                             <button className="btn btn-info btn-sm btn-block">Add to Wishlist</button>
                                             <button className="btn btn-warning btn-sm btn-block">Add to Trade</button>
+                                            {/* work on clicking and adding to collection */}
                                         </div>
                                     </div>
                                 </div>

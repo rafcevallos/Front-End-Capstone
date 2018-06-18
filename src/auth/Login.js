@@ -69,7 +69,7 @@ export default class Login extends Component {
     */
     render() {
         return (
-            <form className="form-signin" onSubmit={this.handleLogin}>
+            <form className="form-signin" style={{ animation: `radial-pulse 4s infinite `,}} onSubmit={this.handleLogin}>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label htmlFor="inputEmail" className="sr-only">Email address</label>
                 <input onChange={this.handleFieldChange} type="email" id="email" className="form-control" placeholder="Email address" required="" autoFocus="" />
