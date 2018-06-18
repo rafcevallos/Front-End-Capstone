@@ -5,10 +5,9 @@ import FriendList from "../friends/FriendList";
 
 export default class Home extends Component {
 
+    // Set Initial State
     state = {
-        bookcollection: [],
-        book: [],
-        collection: []
+        bookcollection: [], /* Will hold all the individual books the current user has */
     }
 
     handleFieldChange = (evt) => {
@@ -16,44 +15,37 @@ export default class Home extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
-// will need 3 fetches.   One for bookcollection, another for the collection, and another for an indivdual book
+
+    /*deleteBook = function
+    this will be a DELETE JSON method */
+
+    /* Query DB to get all books owned by the active user */
+    /* Try moving the component did mount into a function so the page can refresh once the user deletes a book */
     componentDidMount() {
-        fetch(`http://localhost:8088/collection?userId=${this.props.activeUser}`)
+        const currentUser = JSON.parse(localStorage.getItem("userId")) /* Get current user ID */
+        console.log(currentUser)
+        fetch(`http://localhost:8088/bookcollection?userId=${currentUser}&_sort=id&_order=asc&_expand=book`)
             .then(r => r.json())
-            .then(collection => this.setState({ collection: collection }))
-            return
+            .then(bookcollection => {
+                this.setState({
+                    bookcollection: bookcollection
+                })
+            })
+        console.log(this.state)
     }
 
     render() {
         return (
-            // if collectionId and collection.id match  AND bookid and book match, then render
-            <div className="container-full">
-                <div className="row">
-                    {/* <div className="col col-sm-3">
-                        <BookList />
-                    </div>
-                    <div className="col content col-sm-6">
-                        <div className="newsfeed">
-                            <form>
-                                <div className="form-group">
-                                    <label htmlFor="message"><h5>What would you like to Yak about?</h5></label>
-                                    <textarea id="message"
-                                              value={this.state.message}
-                                              onChange={this.handleFieldChange}
-                                              className="form-control"
-                                              rows="4"></textarea>
-                                </div>
-                                <button type="button" onClick={this.postMessage} className="btn btn-info btn-lg">Post</button>
-                            </form> */}
-
-                            <BookList collection={this.state.collection} activeUser={this.props.activeUser} />
-                        </div>
-                    </div>
-                // </div>
+            <div className="collection-results card-deck">
+                <h1 className="collection-header">My Collection</h1>
+                {/* <div className="collection-container card">
+                    <div className="row"> */}
+                <div>
+                    <BookList bookcollection={this.state.bookcollection} activeUser={this.props.activeUser} />
+                </div>
+            </div>
             // </div>
-
-
-
+            // </div>
         )
     }
 }

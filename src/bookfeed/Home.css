@@ -1,8 +1,17 @@
-.newsfeed {
-
+.collection-results {
+  margin: 125px auto;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: whitesmoke;
+  opacity: .96;
+  border-radius: 20px;
 }
 
-.container-full {
-    margin: 150px auto;
-    width: 95%;
-  }
+.card-book {
+  margin-top: 10px;
+  width: 30%;
+}

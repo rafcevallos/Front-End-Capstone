@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import NavBar from './nav/NavBar'
 import Login from './auth/Login'
 import SearchResults from '../src/search/SearchResults'
-// import Home from '../src/bookfeed/Home'
+import Home from '../src/bookfeed/Home'
 // import BookList from './bookfeed/BookList'
 
 
@@ -84,7 +84,7 @@ export default class App extends Component {
           return <SearchResults terms={this.state.searchTerms} />
         case "home":
         default:
-        // return <Home activeUser={this.state.activeUser} />
+        return <Home activeUser={this.state.activeUser} />
       }
     }
   }

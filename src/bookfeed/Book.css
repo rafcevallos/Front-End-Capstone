@@ -1,3 +1,25 @@
+.card-title {
+  text-align: center;
+}
+.card-body {
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 0px 2px red;
+  border-radius: 20px;
+}
+
+.card-text {
+  overflow: hidden;
+  font-size: 11px;
+  text-align: center;
+}
+
+.summary-text {
+  font-size: 10px;
+  text-align: left;
+}
+
+
 .store-container {
     float: left;
     margin: 10px;

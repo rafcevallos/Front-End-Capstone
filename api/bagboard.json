@@ -2690,14 +2690,6 @@
             "interest": "Movies, concerts, nature",
             "reading": "IDW Transformers",
             "top": "Infinity Gauntlet"
-        },
-        {
-            "firstName": "",
-            "lastName": "",
-            "email": "",
-            "password": "",
-            "userName": "",
-            "id": 2
         }
     ],
     "friends": [
@@ -2710,13 +2702,18 @@
     "bookcollection": [
         {
             "id": 1,
-            "collectionId": 1,
+            "userId": 1,
             "bookId": 46220
         },
         {
             "id": 2,
-            "collectionId": 1,
+            "userId": 1,
             "bookId": 39395
+        },
+        {
+            "id": 3,
+            "userId": 1,
+            "bookId": 47121
         }
     ],
     "collection": [
@@ -2728,11 +2725,7 @@
     "wishlist": [
         {
             "id": 1,
-            "bookId": [
-                66407,
-                55129
-            ],
-            "userId": 1
+            "bookId": 64666
         }
     ]
 }

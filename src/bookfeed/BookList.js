@@ -6,11 +6,15 @@ export default class BookList extends Component {
 
     render() {
         return (
-            <div className="bookList">
-                <h1 className="bookList_header">My Collection</h1>
+            <div className="collection-container card">
+                    <div className="row">
                 {
-                    this.props.collection.bookId.map(c => <Book key={c.id} collection={c} />)
-                }
+                    this.props.bookcollection.map(b =>
+                    <div className="card-book col-sm-3">
+                        <Book key={b.id} book={b} />)
+            </div>
+                )}
+            </div>
             </div>
         )
     }
