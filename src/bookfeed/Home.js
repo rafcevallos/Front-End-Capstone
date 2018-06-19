@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import "./Home.css"
 import BookList from './BookList'
-import FriendList from "../friends/FriendList";
+// import FriendList from "../friends/FriendList";
 
 export default class Home extends Component {
 
@@ -16,14 +16,20 @@ export default class Home extends Component {
         this.setState(stateToChange)
     }
 
-    /*deleteBook = function
-    this will be a DELETE JSON method */
+    /* this will be a DELETE JSON method to remove book from user's collection */
+    deleteBookFromDB = function (id) {
+        fetch(`http://localhost:8088/bookcollection/${id}`, {
+            method: "DELETE"
+        }).then(data => {
+            // this.myCollection();
+        })
+    }
+    // }.bind(this)
 
     /* Query DB to get all books owned by the active user */
-    /* Try moving the component did mount into a function so the page can refresh once the user deletes a book */
-    componentDidMount() {
+    /* Moved fetch into a function so the page can "refresh" once the user deletes a book - IN THEORY the user should see the book removed immediately */
+    myCollection = function () {
         const currentUser = JSON.parse(localStorage.getItem("userId")) /* Get current user ID */
-        console.log(currentUser)
         fetch(`http://localhost:8088/bookcollection?userId=${currentUser}&_sort=id&_order=asc&_expand=book`)
             .then(r => r.json())
             .then(bookcollection => {
@@ -31,21 +37,22 @@ export default class Home extends Component {
                     bookcollection: bookcollection
                 })
             })
-        console.log(this.state)
-    }
+    }.bind(this)
+
+
+    // componentDidMount() {
+    // }
 
     render() {
         return (
             <div className="collection-results card-deck">
+                {/* invoke the myCollection function to display items in user's collection */}
+                {this.myCollection()}
                 <h1 className="collection-header">My Collection</h1>
-                {/* <div className="collection-container card">
-                    <div className="row"> */}
                 <div>
-                    <BookList bookcollection={this.state.bookcollection} activeUser={this.props.activeUser} />
+                    <BookList bookcollection={this.state.bookcollection} activeUser={this.props.activeUser} deleteBookFromDB={this.deleteBookFromDB} />
                 </div>
             </div>
-            // </div>
-            // </div>
         )
     }
 }

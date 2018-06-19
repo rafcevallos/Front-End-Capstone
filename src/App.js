@@ -70,7 +70,6 @@ export default class App extends Component {
     TODO:
         1. Profile view
         2. Register view
-        3. Create event view
 */
   View = () => {
     if (localStorage.getItem("userId") === null) {

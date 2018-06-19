@@ -4,17 +4,23 @@ import Book from './Book';
 
 export default class BookList extends Component {
 
+    deleteBook = function (id) {
+        // console.log(id)
+        this.props.deleteBookFromDB(id)
+    }.bind(this)
+
     render() {
         return (
             <div className="collection-container card">
-                    <div className="row">
-                {
-                    this.props.bookcollection.map(b =>
-                    <div className="card-book col-sm-3">
-                        <Book key={b.id} book={b} />)
-            </div>
-                )}
-            </div>
+                <div className="row">
+                    {
+                        this.props.bookcollection.map(b =>
+                            <div className="card-book col-sm-3">
+                                <Book key={b.id} book={b} deleteBook={this.deleteBook} />
+                            </div>
+                        )
+                    }
+                </div>
             </div>
         )
     }

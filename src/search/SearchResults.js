@@ -4,19 +4,15 @@ import Avatar from "../images/avatar.png"
 import "../bookfeed/Book.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
-
-
 export default class SearchResults extends Component {
     // Set initial state
     state = {
         books: [], /* This will hold all of the books from bagboard.json once they are fetched */
-        // users: [],
-        // collection: [],
+        // userId: this.userId,
         // wishlist: [],
     }
 
-    /* componentDidMount() does not allow multiple searches to work due to it only making the fetch once which makes the user have to reload the page.  Turning the fetch into a function allows it to be re-used in definitely when the page is rendered. */
-
+    /* componentDidMount() does not allow multiple searches to work due to it only making the fetch once which makes the user have to reload the page.  Turning the fetch into a function allows it to be re-used indefinitely when the page is rendered. */
     Search = function () {
         fetch(`http://localhost:8088/books?description_like=${encodeURI(this.props.terms)}`)
             .then(r => r.json())
@@ -25,6 +21,26 @@ export default class SearchResults extends Component {
                     books: books
                 })
             })
+    }.bind(this)
+
+    // handleFieldChange = (evt) => {
+    //     const stateToChange = {}
+    //     stateToChange[evt.target.id] = evt.target.value
+    //     this.setState(stateToChange)
+    // }
+
+    addBook = function(event) {
+        fetch("http://localhost:8088/bookcollection", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userId: JSON.parse(localStorage.getItem("userId")),
+                bookId: +event.target.id /* + converts this to a number */
+            })
+        })
+        // console.log(event.target.value)
     }.bind(this)
 
     render() {
@@ -43,7 +59,7 @@ export default class SearchResults extends Component {
                                         <h6 className="card-title">{book.title}</h6>
                                         <p>Date: {book.date}</p>
                                         <p>Pages: {book.pageCount}</p>
-                                        <p>Price: $ {book.prices[0].price}</p>
+                                        <p>Price: ${book.prices[0].price}</p>
                                         <p className="summary-text">Summary: {book.description}</p>
                                         {/* <p>Summary: {book.description.substring(0,250)}</p> */}
                                         <div className="button-group">
@@ -51,10 +67,10 @@ export default class SearchResults extends Component {
                                                 Description
                                             </button>
                                             {/* work on clicking and adding to collection */}
+                                            <button className="btn btn-success btn-sm btn-block" id={book.id} onClick={this.addBook}>Add to Collection</button>
+                                            <button className="btn btn-info btn-sm btn-block">Add to Wishlist</button>
+                                            <button className="btn btn-warning btn-sm btn-block">Add to Trade</button>
                                         </div>
-                                        <button className="btn btn-success btn-sm btn-block">Add to Collection</button>
-                                        <button className="btn btn-info btn-sm btn-block">Add to Wishlist</button>
-                                        <button className="btn btn-warning btn-sm btn-block">Add to Trade</button>
                                     </div>
                                 </div>
                             )}
