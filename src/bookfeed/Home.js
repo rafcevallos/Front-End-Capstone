@@ -48,7 +48,7 @@ export default class Home extends Component {
             <div className="collection-results card-deck">
                 {/* invoke the myCollection function to display items in user's collection */}
                 {this.myCollection()}
-                <h1 className="collection-header">My Collection</h1>
+                <h3 className="collection-header">My Collection</h3>
                 <div>
                     <BookList bookcollection={this.state.bookcollection} activeUser={this.props.activeUser} deleteBookFromDB={this.deleteBookFromDB} />
                 </div>

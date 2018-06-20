@@ -5,6 +5,7 @@ import NavBar from './nav/NavBar'
 import Login from './auth/Login'
 import SearchResults from '../src/search/SearchResults'
 import Home from '../src/bookfeed/Home'
+import Profile from './profile/Profile'
 // import BookList from './bookfeed/BookList'
 
 
@@ -81,14 +82,22 @@ export default class App extends Component {
         case "results":
           console.log(this.state.searchTerms)
           return <SearchResults terms={this.state.searchTerms} />
+        case "profile":
+          return <Profile showView={this.showView} setActiveUser={this.setActiveUser} />
         case "home":
         default:
-        return <Home activeUser={this.state.activeUser} />
+          return <Home activeUser={this.state.activeUser} />
       }
     }
   }
+
   render() {
+    if (localStorage.getItem("userId") === null) {
+      return this.View()
+    } else {
     return (
+      /* Conditional to prevent navbar from rendering if user is logged out */
+
       <article>
         {/* This searchHandler is passed to NavBar */}
         <NavBar viewHandler={this.showView}
@@ -99,5 +108,6 @@ export default class App extends Component {
         {this.View()}
       </article>
     )
+  }
   }
 }

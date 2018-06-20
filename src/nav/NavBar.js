@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import pow from "../images/pow.png"
+import kapow from "../images/kapow.png"
 import $ from "jquery"
 import profilepic from '../images/profile.png'
 import "./NavBar.css"
@@ -45,7 +45,7 @@ export default class NavBar extends Component {
         return (
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                 <a className="navbar-brand col-sm-3 col-md-2 mr-0" onClick={this.props.viewHandler} href="#">
-                    <img id="nav__home" src={pow} style={{ height: `75px` }} />
+                    <img id="nav__home" src={kapow} style={{ height: `75px` }} />
                 </a>
                 <input id="searchTerms"
                     value={this.state.searchTerms}

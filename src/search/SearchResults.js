@@ -48,7 +48,7 @@ export default class SearchResults extends Component {
             <div className="searchResults card-deck">
                 {/* Invoke Search Function */}
                 {this.Search()}
-                <h1 className="search-header">Search Results</h1>
+                <h3 className="search-header">Search Results</h3>
                 <div className="search-container card">
                     <div className="row">
                         {

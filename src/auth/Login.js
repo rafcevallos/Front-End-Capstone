@@ -6,11 +6,8 @@ export default class Login extends Component {
 
     // Set initial state
     state = {
-        firstName: "",
-        lastName: "",
         email: "",
         password: "",
-        userName: ""
     }
 
     // Update state whenever an input field is edited aka tracks user keypresses
@@ -42,11 +39,8 @@ export default class Login extends Component {
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            firstName: this.state.firstName,
-                            lastName: this.state.lastName,
                             email: this.state.email,
                             password: this.state.password,
-                            userName: this.state.userName
                         })
                     })
 
@@ -69,6 +63,8 @@ export default class Login extends Component {
     */
     render() {
         return (
+            <div>
+                <header><h1 className="app-title">WELCOME TO BAG & BOARD</h1></header>
             <form className="form-signin" style={{ animation: `radial-pulse 4s infinite `,}} onSubmit={this.handleLogin}>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label htmlFor="inputEmail" className="sr-only">Email address</label>
@@ -79,8 +75,9 @@ export default class Login extends Component {
                     <input type="checkbox" value="remember-me" /> Remember me
                 </div>
                 <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                <p className="mt-5 mb-3 text-muted">© 2018</p>
+                {/* <p className="mt-5 mb-3 text-muted">© 2018</p> */}
             </form>
+            </div>
         )
     }
 }
