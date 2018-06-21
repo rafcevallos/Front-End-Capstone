@@ -73,8 +73,10 @@ export default class App extends Component {
         2. Register view
 */
   View = () => {
-    if (localStorage.getItem("userId") === null) {
+    if (localStorage.getItem("userId") === null && this.state.currentView !== "register") {
       return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+    } else if (localStorage.getItem("userId") === null && this.state.currentView === "register") {
+      return <Register showView={this.showView} setActiveUser={this.setActiveUser} currentState={this.state} />
     /* one option, do another conditional if the person tries to log in and reroutes to register */
     } else {
       switch (this.state.currentView) {
@@ -83,8 +85,8 @@ export default class App extends Component {
         case "results":
           console.log(this.state.searchTerms)
           return <SearchResults terms={this.state.searchTerms} />
-        case "register":
-          return <Register showView={this.showView} setActiveUser={this.setActiveUser} currentState={this.state} />
+        // case "register":
+        //   return <Register showView={this.showView} setActiveUser={this.setActiveUser} currentState={this.state} />
         case "profile":
           return <Profile showView={this.showView} setActiveUser={this.setActiveUser} />
         case "home":

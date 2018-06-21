@@ -6,12 +6,19 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: whitesmoke;
+    background-color: rgb(204, 0, 255);
     opacity: .96;
     border-radius: 20px;
 }
 
-/* .card-book {
+.profile-header {
+    color: white;
+}
+.profile-container.card {
+    border-radius: 2%;
+}
+
+.card-profile {
     margin-top: 10px;
     width: 30%;
 }
@@ -19,8 +26,11 @@
 .card-title {
     text-align: center;
 }
+
 .card-body {
     height: 100%;
+    max-width: 100%;
+    width: 100%;
     box-sizing: border-box;
     box-shadow: inset 0px 0px 0px 2px red;
     border-radius: 20px;
@@ -35,4 +45,4 @@
 .summary-text {
     font-size: 10px;
     text-align: left;
-} */
+}

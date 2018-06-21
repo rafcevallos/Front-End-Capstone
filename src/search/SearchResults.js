@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import "./SearchResults.css"
 // import Avatar from "../images/avatar.png"
-import "../bookfeed/Book.css"
+// import "../bookfeed/Book.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 export default class SearchResults extends Component {
@@ -59,8 +59,10 @@ export default class SearchResults extends Component {
                                         <p>Date: {book.date}</p>
                                         <p>Pages: {book.pageCount}</p>
                                         <p>Price: ${book.prices[0].price}</p>
+                                        <div id="summary-box">
                                         <p className="summary-text">Summary: {book.description}</p>
                                         {/* <p>Summary: {book.description.substring(0,250)}</p> */}
+                                        </div>
                                         <div className="button-group">
                                             <button className="btn btn-primary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#content" aria-expanded="false" aria-controls="content">
                                                 Description

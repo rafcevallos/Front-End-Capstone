@@ -15,10 +15,10 @@ export default class Register extends Component {
     }
 
     // Update state whenever an input field is edited aka tracks user keypresses
-    handleFieldChange = function (evt) {
-        const stateToChange = {}
-        stateToChange[evt.target.id] = evt.target.value
-        this.setState(stateToChange)
+    handleFieldChange = function (e) {
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
     }.bind(this)
 
     // Handle for register submit
@@ -74,27 +74,27 @@ export default class Register extends Component {
 
                     {/* Input for firstName */}
                     <label htmlFor="inputfirstName" className="sr-only">First Name</label>
-                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="First Name" required autoFocus autoComplete="firstName" />
+                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="First Name" name="firstName" required autoFocus autoComplete="firstName" />
 
                     {/* Input for lastName */}
                     <label htmlFor="inputlastName" className="sr-only">Last Name</label>
-                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="Last Name" required autoFocus autoComplete="lastName" />
+                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="Last Name" name="lastName" required autoFocus autoComplete="lastName" />
 
                     {/* Input for userName */}
                     <label htmlFor="inputuserName" className="sr-only">Username</label>
-                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="Username" required autoFocus autoComplete="userName" />
+                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="Username" name="userName" required autoFocus autoComplete="userName" />
 
-                    {/* Input for location */}
-                    <label htmlFor="inputLocation" className="sr-only">Location</label>
-                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="Location" required autoFocus autoComplete="location" />
+                    {/* Input for city */}
+                    <label htmlFor="inputCity" className="sr-only">Location</label>
+                    <input onChange={this.handleFieldChange} type="text" className="form-control" placeholder="City" name="city" required autoFocus autoComplete="city" />
 
                     {/* Input for email */}
                     <label htmlFor="inputEmail" className="sr-only">Email</label>
-                    <input onChange={this.handleFieldChange} type="email" id="email" className="form-control" placeholder="Email" required autoFocus autoComplete="email" />
+                    <input onChange={this.handleFieldChange} type="email" id="email" className="form-control" placeholder="Email" name="email" required autoFocus autoComplete="email" />
 
                     {/* Input for password */}
                     <label htmlFor="password" className="sr-only">Password</label>
-                    <input onChange={this.handleFieldChange} type="password" id="password" className="form-control" placeholder="Password" required autoFocus autoComplete="new-password" />
+                    <input onChange={this.handleFieldChange} type="password" id="password" className="form-control" placeholder="Password" name="password" required autoFocus autoComplete="new-password" />
 
                     {/* Submit Button */}
                     <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>

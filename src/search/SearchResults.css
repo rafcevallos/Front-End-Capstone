@@ -37,6 +37,10 @@
     text-align: center;
 }
 
+#summary-box {
+    height: 250px;
+    overflow: scroll;
+}
 .summary-text {
     font-size: 10px;
     text-align: left;

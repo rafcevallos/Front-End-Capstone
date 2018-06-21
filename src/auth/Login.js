@@ -31,27 +31,10 @@ export default class Login extends Component {
                     this.props.showView("home")
 
                     // If USER doesn't exist
-                } else {
-                    // Create the new user in API
-                    fetch("http://localhost:8088/users", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            email: this.state.email,
-                            password: this.state.password,
-                        })
-                    })
+                } else {alert("Please Register!")
+                this.props.showView("register")}
 
-                        // Set local storage with newly created user's id and show home view
-                        .then(newUser => {
-                            this.props.setActiveUser(newUser.id)
-                            this.props.showView("home")
-                        })
-                }
-
-            })
+    })
     }.bind(this)
 
     /*

@@ -10,11 +10,11 @@ export default class Home extends Component {
         bookcollection: [], /* Will hold all the individual books the current user has */
     }
 
-    handleFieldChange = (evt) => {
-        const stateToChange = {}
-        stateToChange[evt.target.id] = evt.target.value
-        this.setState(stateToChange)
-    }
+    // handleFieldChange = (evt) => {
+    //     const stateToChange = {}
+    //     stateToChange[evt.target.id] = evt.target.value
+    //     this.setState(stateToChange)
+    // }
 
     /* this will be a DELETE JSON method to remove book from user's collection */
     deleteBookFromDB = function (id) {

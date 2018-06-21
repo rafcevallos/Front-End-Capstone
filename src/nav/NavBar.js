@@ -60,7 +60,9 @@ export default class NavBar extends Component {
                         <a className="nav-link" id="nav__profile"
                             onClick={this.props.viewHandler} href="#">
                             <img id="navimg__profile"
-                                onClick={() => $(".profileMenu").slideToggle(333)}
+                            /* Maybe not have a menu dropdown and create buttons on the navbar
+                            instead.  Allow user to click on picture to get to profile */
+                                // onClick={() => $(".profileMenu").slideToggle(333)}
                                 src={profilepic} style={{ height: `75px`, animation: `radial-pulse 1s infinite` }} />
                         </a>
                     </li>

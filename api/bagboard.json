@@ -4894,6 +4894,24 @@
       "interest": "Movies, concerts, nature",
       "reading": "IDW Transformers",
       "top": "Infinity Gauntlet"
+    },
+    {
+      "firstName": "Bleep",
+      "lastName": "Bloop",
+      "userName": "blooper",
+      "city": "Nashville",
+      "email": "blooper@email.com",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "firstName": "Babs",
+      "lastName": "Blabber",
+      "userName": "blabberybabs",
+      "city": "Nashville",
+      "email": "babs@email.com",
+      "password": "12345",
+      "id": 3
     }
   ],
   "friends": [
@@ -4918,6 +4936,21 @@
       "userId": 1,
       "bookId": 62185,
       "id": 5
+    },
+    {
+      "userId": 2,
+      "bookId": 51940,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "bookId": 64399,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "bookId": 53457,
+      "id": 8
     }
   ],
   "collection": [
