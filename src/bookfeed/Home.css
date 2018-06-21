@@ -1,12 +1,13 @@
 .collection-results {
   margin: 125px auto;
-  max-width: 90%;
-  display: flex;
+  max-width: 100%;
+  width: 90%;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: whitesmoke;
+  background-color: green;
   opacity: .96;
   border-radius: 20px;
 }

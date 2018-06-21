@@ -4886,10 +4886,10 @@
       "firstName": "Raf",
       "lastName": "Cev",
       "email": "raf123@email.com",
-      "password": "",
+      "password": "12345",
       "userName": "raffytaffy",
       "photo": "",
-      "location": "Nashville",
+      "city": "Nashville",
       "bio": "Stuff and Things",
       "interest": "Movies, concerts, nature",
       "reading": "IDW Transformers",
@@ -4905,14 +4905,19 @@
   ],
   "bookcollection": [
     {
-      "id": 1,
       "userId": 1,
-      "bookId": 46220
+      "bookId": 60039,
+      "id": 3
     },
     {
       "userId": 1,
-      "bookId": 51940,
-      "id": 2
+      "bookId": 66594,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "bookId": 62185,
+      "id": 5
     }
   ],
   "collection": [

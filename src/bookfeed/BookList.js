@@ -15,7 +15,7 @@ export default class BookList extends Component {
                 <div className="row">
                     {
                         this.props.bookcollection.map(b =>
-                            <div className="card-book col-sm-3">
+                            <div className="card-book col-sm-3" key={b.id}>
                                 <Book key={b.id} book={b} deleteBook={this.deleteBook} />
                             </div>
                         )

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import NavBar from './nav/NavBar'
+import Register from './auth/Register'
 import Login from './auth/Login'
 import SearchResults from '../src/search/SearchResults'
 import Home from '../src/bookfeed/Home'
 import Profile from './profile/Profile'
-// import BookList from './bookfeed/BookList'
 
 
 export default class App extends Component {
@@ -75,6 +75,7 @@ export default class App extends Component {
   View = () => {
     if (localStorage.getItem("userId") === null) {
       return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+    /* one option, do another conditional if the person tries to log in and reroutes to register */
     } else {
       switch (this.state.currentView) {
         case "logout":
@@ -82,6 +83,8 @@ export default class App extends Component {
         case "results":
           console.log(this.state.searchTerms)
           return <SearchResults terms={this.state.searchTerms} />
+        case "register":
+          return <Register showView={this.showView} setActiveUser={this.setActiveUser} currentState={this.state} />
         case "profile":
           return <Profile showView={this.showView} setActiveUser={this.setActiveUser} />
         case "home":
@@ -92,22 +95,22 @@ export default class App extends Component {
   }
 
   render() {
+    /* Conditional to prevent navbar from rendering if user is logged out */
     if (localStorage.getItem("userId") === null) {
       return this.View()
     } else {
-    return (
-      /* Conditional to prevent navbar from rendering if user is logged out */
 
-      <article>
-        {/* This searchHandler is passed to NavBar */}
-        <NavBar viewHandler={this.showView}
-          searchHandler={this.performSearch}
-          activeUser={this.state.activeUser}
-          setActiveUser={this.setActiveUser}
-        />
-        {this.View()}
-      </article>
-    )
-  }
+      return (
+        <article>
+          {/* This searchHandler is passed to NavBar */}
+          <NavBar viewHandler={this.showView}
+            searchHandler={this.performSearch}
+            activeUser={this.state.activeUser}
+            setActiveUser={this.setActiveUser}
+          />
+          {this.View()}
+        </article>
+      )
+    }
   }
 }

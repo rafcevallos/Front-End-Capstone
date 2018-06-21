@@ -29,7 +29,8 @@ export default class Home extends Component {
     /* Query DB to get all books owned by the active user */
     /* Moved fetch into a function so the page can "refresh" once the user deletes a book - IN THEORY the user should see the book removed immediately */
     myCollection = function () {
-        const currentUser = JSON.parse(localStorage.getItem("userId")) /* Get current user ID */
+        /* Get current user ID */
+        const currentUser = JSON.parse(localStorage.getItem("userId"))
         fetch(`http://localhost:8088/bookcollection?userId=${currentUser}&_sort=id&_order=asc&_expand=book`)
             .then(r => r.json())
             .then(bookcollection => {

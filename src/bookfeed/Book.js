@@ -10,10 +10,6 @@ export default class Book extends Component {
 
     render() {
         return (
-            // <div className="card-book">
-            // <div className="comic-thumbnail-container">
-            // </div>
-
             <div className="card-body">
                 <img className="card-img-top" src={`${this.props.book.book.thumbnail.path}.${this.props.book.book.thumbnail.extension}`} />
                 <h6 className="card-title">{this.props.book.book.title}</h6>

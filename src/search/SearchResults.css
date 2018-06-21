@@ -6,16 +6,15 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: whitesmoke;
+    background-color: yellow;
     opacity: .96;
     border-radius: 20px;
+    color: black;
 }
 
-/* .search-header {
-    background-color: white;
-    padding: 20px;
-    box-shadow: inset 0px 0px 0px 10px red;
-} */
+.search-container.card {
+    border-radius: 2%;
+}
 
 .card-book {
     margin-top: 10px;

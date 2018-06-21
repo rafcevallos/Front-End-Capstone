@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./SearchResults.css"
-import Avatar from "../images/avatar.png"
+// import Avatar from "../images/avatar.png"
 import "../bookfeed/Book.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -8,7 +8,6 @@ export default class SearchResults extends Component {
     // Set initial state
     state = {
         books: [], /* This will hold all of the books from bagboard.json once they are fetched */
-        // userId: this.userId,
         // wishlist: [],
     }
 
