@@ -4912,6 +4912,15 @@
       "email": "babs@email.com",
       "password": "12345",
       "id": 3
+    },
+    {
+      "firstName": "kitty",
+      "lastName": "purry",
+      "userName": "kittypurrysquad",
+      "city": "nashville",
+      "email": "kitty@email.com",
+      "password": "5678",
+      "id": 4
     }
   ],
   "friends": [
@@ -4933,11 +4942,6 @@
       "id": 4
     },
     {
-      "userId": 1,
-      "bookId": 62185,
-      "id": 5
-    },
-    {
       "userId": 2,
       "bookId": 51940,
       "id": 6
@@ -4951,6 +4955,16 @@
       "userId": 2,
       "bookId": 53457,
       "id": 8
+    },
+    {
+      "userId": 4,
+      "bookId": 47799,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "bookId": 60482,
+      "id": 10
     }
   ],
   "collection": [
