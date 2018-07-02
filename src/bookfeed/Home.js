@@ -21,10 +21,9 @@ export default class Home extends Component {
         fetch(`http://localhost:8088/bookcollection/${id}`, {
             method: "DELETE"
         }).then(data => {
-            // this.myCollection();
+            this.myCollection();
         })
-    }
-    // }.bind(this)
+    }.bind(this)
 
     /* Query DB to get all books owned by the active user */
     /* Moved fetch into a function so the page can "refresh" once the user deletes a book - IN THEORY the user should see the book removed immediately */
@@ -40,13 +39,16 @@ export default class Home extends Component {
             })
     }.bind(this)
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState !== this.state) {
-            this.myCollection()
-        }
-    }
+
+    // componentDidUpdate(prevProps) {
+    //     console.log(this.state.bookcollection)
+    //     if (prevProps === this.state.bookcollection) {
+    //         this.myCollection()
+    //     }
+    // }
 
     componentDidMount() {
+        // Invoke myCollection function
         this.myCollection()
     }
 
