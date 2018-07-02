@@ -58,9 +58,9 @@ export default class SearchResults extends Component {
         })
     }.bind(this)
 
-/* componentDidUpdate will evaluate terms set in App.js, so
-if previous props does not equal the new term set by the new search , then invoke the Search function
-This will prevent the INFINITE LOOP and allow the user to do multiple searches w/o refreshing */
+    /* componentDidUpdate will evaluate terms set in App.js, so
+    if previous props does not equal the new term set by the new search , then invoke the Search function
+    This will prevent the INFINITE LOOP and allow the user to do multiple searches w/o refreshing */
     componentDidUpdate(prevProps) {
         if (prevProps.terms !== this.props.terms) {
             this.Search()
