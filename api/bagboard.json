@@ -4928,16 +4928,6 @@
       "id": 3
     },
     {
-      "userId": 1,
-      "bookId": 66594,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "bookId": 62185,
-      "id": 5
-    },
-    {
       "userId": 2,
       "bookId": 51940,
       "id": 6
@@ -4951,6 +4941,16 @@
       "userId": 2,
       "bookId": 53457,
       "id": 8
+    },
+    {
+      "userId": 1,
+      "bookId": 46496,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "bookId": 60482,
+      "id": 10
     }
   ],
   "collection": [
@@ -4962,7 +4962,18 @@
   "wishlist": [
     {
       "id": 1,
+      "userId": 1,
       "bookId": 64666
+    },
+    {
+      "userId": 1,
+      "bookId": 60482,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "bookId": 42218,
+      "id": 3
     }
   ]
 }

@@ -7,6 +7,7 @@ import Login from './auth/Login'
 import SearchResults from '../src/search/SearchResults'
 import Home from '../src/bookfeed/Home'
 import Profile from './profile/Profile'
+import Wishlist from './bookfeed/WishList'
 
 
 export default class App extends Component {
@@ -67,28 +68,30 @@ export default class App extends Component {
 
   /*
     Function to determine which main view to render.
-
-    TODO:
-        1. Profile view
-        2. Register view
-*/
+  */
   View = () => {
+    // Conditional: if userId does not exist and the current view is not REGISTER, show LOGIN
     if (localStorage.getItem("userId") === null && this.state.currentView !== "register") {
       return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+      // Conditional: if userId does not exist and the current view is Register, show REGISTER and set active user
     } else if (localStorage.getItem("userId") === null && this.state.currentView === "register") {
       return <Register showView={this.showView} setActiveUser={this.setActiveUser} currentState={this.state} />
-    /* one option, do another conditional if the person tries to log in and reroutes to register */
     } else {
       switch (this.state.currentView) {
+        // Show LOGIN once the user logs out
         case "logout":
           return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+        // Show SEARCH RESULTS when the user searches for a book
         case "results":
-          console.log(this.state.searchTerms)
+          // console.log(this.state.searchTerms)
           return <SearchResults terms={this.state.searchTerms} />
-        // case "register":
-        //   return <Register showView={this.showView} setActiveUser={this.setActiveUser} currentState={this.state} />
+        // Show PROFILE when the user clicks profile icon/menu
         case "profile":
           return <Profile showView={this.showView} setActiveUser={this.setActiveUser} />
+        // Show PROFILE when the user clicks profile icon/menu
+        case "wishlist":
+          return <Wishlist showView={this.showView} setActiveUser={this.setActiveUser} />
+        // Show HOME VIEW which is "MY COLLECTON" by default upon logging in
         case "home":
         default:
           return <Home activeUser={this.state.activeUser} />
