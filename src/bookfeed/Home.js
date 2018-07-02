@@ -40,15 +40,21 @@ export default class Home extends Component {
             })
     }.bind(this)
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState !== this.state) {
+            this.myCollection()
+        }
+    }
 
-    // componentDidMount() {
-    // }
+    componentDidMount() {
+        this.myCollection()
+    }
 
     render() {
         return (
             <div className="collection-results card-deck">
                 {/* invoke the myCollection function to display items in user's collection */}
-                {this.myCollection()}
+                {/* {this.myCollection()} */}
                 <h3 className="collection-header">My Collection</h3>
                 <div>
                     <BookList bookcollection={this.state.bookcollection} activeUser={this.props.activeUser} deleteBookFromDB={this.deleteBookFromDB} />

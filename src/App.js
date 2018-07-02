@@ -99,6 +99,9 @@ export default class App extends Component {
     }
   }
 
+  componentDidMount() {
+  }
+
   render() {
     /* Conditional to prevent navbar from rendering if user is logged out */
     if (localStorage.getItem("userId") === null) {

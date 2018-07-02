@@ -67,7 +67,7 @@ This will prevent the INFINITE LOOP and allow the user to do multiple searches w
         }
     }
 
-    // Mounts the search function
+    // Mounts the SEARCH function
     componentDidMount() {
         this.Search()
     }
