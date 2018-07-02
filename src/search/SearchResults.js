@@ -8,11 +8,12 @@ export default class SearchResults extends Component {
     // Set initial state
     state = {
         books: [], /* This will hold all of the books from bagboard.json once they are fetched */
-        // wishlist: [],
     }
 
-    /* componentDidMount() does not allow multiple searches to work due to it only making the fetch once which makes the user have to reload the page.  Turning the fetch into a function allows it to be re-used indefinitely when the page is rendered. */
-    Search = function () {
+    /*Function to query book descriptions in database for terms typed in by user
+    and sets the state to results
+    */
+    Search = function (e) {
         fetch(`http://localhost:8088/books?description_like=${encodeURI(this.props.terms)}`)
             .then(r => r.json())
             .then(books => {
@@ -28,6 +29,7 @@ export default class SearchResults extends Component {
     //     this.setState(stateToChange)
     // }
 
+    // Function to add a book to the user's COLLECTION and POST book to USER'S COLLECTION in DATABASE
     addBook = function (event) {
         fetch("http://localhost:8088/bookcollection", {
             method: "POST",
@@ -36,17 +38,44 @@ export default class SearchResults extends Component {
             },
             body: JSON.stringify({
                 userId: JSON.parse(localStorage.getItem("userId")),
-                bookId: +event.target.id /* + converts this to a number */
+                bookId: +event.target.id /* '+' converts this to a number */
             })
         })
         // console.log(event.target.value)
     }.bind(this)
 
+    // Function to add a book to the user's WISHLIST and POST book to USER'S WISHLIST in DATABASE
+    addWishlist = function (event) {
+        fetch("http://localhost:8088/wishlist", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userId: JSON.parse(localStorage.getItem("userId")),
+                bookId: +event.target.id
+            })
+        })
+    }.bind(this)
+
+/* componentDidUpdate will evaluate terms set in App.js, so
+if previous props does not equal the new term set by the new search , then invoke the Search function
+This will prevent the INFINITE LOOP and allow the user to do multiple searches w/o refreshing */
+    componentDidUpdate(prevProps) {
+        if (prevProps.terms !== this.props.terms) {
+            this.Search()
+        }
+    }
+
+    // Mounts the SEARCH function
+    componentDidMount() {
+        this.Search()
+    }
+
+
     render() {
         return (
             <div className="searchResults card-deck">
-                {/* Invoke Search Function */}
-                {this.Search()}
                 <h3 className="search-header">Search Results</h3>
                 <div className="search-container card">
                     <div className="row">
@@ -69,7 +98,7 @@ export default class SearchResults extends Component {
                                             </button>
                                             {/* work on clicking and adding to collection */}
                                             <button className="btn btn-success btn-sm btn-block" id={book.id} onClick={this.addBook}>Add to Collection</button>
-                                            <button className="btn btn-info btn-sm btn-block">Add to Wishlist</button>
+                                            <button className="btn btn-info btn-sm btn-block" id={book.id} onClick={this.addWishlist}>Add to Wishlist</button>
                                             <button className="btn btn-warning btn-sm btn-block">Add to Trade</button>
                                         </div>
                                     </div>

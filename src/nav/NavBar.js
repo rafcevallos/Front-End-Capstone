@@ -20,6 +20,7 @@ export default class NavBar extends Component {
         if (e.charCode === 13) {
             // 13 actually means 'ENTER' button
             this.props.searchHandler(this.state.searchTerms)
+             /*searchTerms is set to blank string so search input is cleared and ready for next search*/
             this.setState({ searchTerms: "" })
         }
     }
@@ -62,7 +63,7 @@ export default class NavBar extends Component {
                             <img id="navimg__profile"
                             /* Maybe not have a menu dropdown and create buttons on the navbar
                             instead.  Allow user to click on picture to get to profile */
-                                // onClick={() => $(".profileMenu").slideToggle(333)}
+                                onClick={() => $(".profileMenu").slideToggle(333)}
                                 src={profilepic} style={{ height: `75px`, animation: `radial-pulse 1s infinite` }} />
                         </a>
                     </li>
@@ -76,7 +77,8 @@ export default class NavBar extends Component {
                     <section className="profileMenu__item">
                         <div><a title="notifications" id="nav__profile" href="#">My Profile</a></div>
                         <div><a title="notifications" id="nav__collection" href="#">My Collection</a></div>
-                        <div><a title="notifications" id="nav__wishlist" href="#">My Wishlist</a></div>
+                        /* Add onClick function for Wishlist to render view */
+                        <div><a title="notifications" id="nav__wishlist" href="#" >My Wishlist</a></div>
                         <div><a title="notifications" id="nav__friends" href="#">My Friends</a></div>
                     </section>
                 </article>

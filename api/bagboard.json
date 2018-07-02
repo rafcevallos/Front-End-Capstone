@@ -4937,11 +4937,6 @@
       "id": 3
     },
     {
-      "userId": 1,
-      "bookId": 66594,
-      "id": 4
-    },
-    {
       "userId": 2,
       "bookId": 51940,
       "id": 6
@@ -4952,19 +4947,19 @@
       "id": 7
     },
     {
-      "userId": 2,
-      "bookId": 53457,
-      "id": 8
+    "userId": 2,
+    "bookId": 53457,
+    "id": 8
     },
     {
-      "userId": 4,
-      "bookId": 47799,
-      "id": 9
+    "userId": 1,
+    "bookId": 24273,
+    "id": 11
     },
     {
-      "userId": 1,
-      "bookId": 60482,
-      "id": 10
+    "userId": 1,
+    "bookId": 59326,
+    "id": 12
     }
   ],
   "collection": [
@@ -4976,7 +4971,18 @@
   "wishlist": [
     {
       "id": 1,
+      "userId": 1,
       "bookId": 64666
+    },
+    {
+      "userId": 1,
+      "bookId": 60482,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "bookId": 42218,
+      "id": 3
     }
   ]
 }

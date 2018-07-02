@@ -8,6 +8,11 @@ export default class Book extends Component {
         this.props.deleteBook(this.props.book.id)
     }.bind(this)
 
+    deleteWish = function () {
+        // console.log(this.props.wishlist)
+        this.props.removeWishlistBookB(this.props.book.id)
+    }
+
     render() {
         return (
             <div className="card-body">
@@ -25,7 +30,7 @@ export default class Book extends Component {
                         Description
                     </button>
                     <button className="btn btn-success btn-sm btn-block" onClick={this.delete}>Remove From Collection</button>
-                    <button className="btn btn-info btn-sm btn-block">Add to Wishlist</button>
+                    <button className="btn btn-info btn-sm btn-block" onClick={this.deleteWish}>Add to Wishlist</button>
                     <button className="btn btn-warning btn-sm btn-block">Add to Trade</button>
                     {/* <a href="#" className="btn btn-outline-success">Like</a> */}
                 </div>
