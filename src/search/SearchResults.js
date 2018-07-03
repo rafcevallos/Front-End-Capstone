@@ -89,7 +89,7 @@ export default class SearchResults extends Component {
                                         <p>Pages: {book.pageCount}</p>
                                         <p>Price: ${book.prices[0].price}</p>
                                         <div id="summary-box">
-                                            <p className="summary-text">Summary: {book.description}</p>
+                                            <p className="summary-text">Description: {book.description}</p>
                                             {/* <p>Summary: {book.description.substring(0,250)}</p> */}
                                         </div>
                                         <div className="button-group">

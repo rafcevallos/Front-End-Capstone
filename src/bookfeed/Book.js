@@ -23,7 +23,11 @@ export default class Book extends Component {
                     <p>Pages: {this.props.book.book.pageCount}</p>
                     <p>Date: {this.props.book.book.date}</p>
                     <p>Price: ${this.props.book.book.prices[0].price}</p>
-                    <p className="summary-text">Description: {this.props.book.book.description}</p>
+                    <div id="summary-box">
+                        <p className="summary-text">Description: {this.props.book.book.description}</p>
+                        {/* <p>Summary: {book.description.substring(0,250)}</p> */}
+                    </div>
+                    {/* <p className="summary-text">Description: {this.props.book.book.description}</p> */}
                 </section>
                 <div className="button-group">
                     <button className="btn btn-primary btn-sm btn-block"> {/* would be nice to have the book info be in some kind of panel/collapse */}
